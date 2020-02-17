@@ -11,7 +11,7 @@ namespace StarsWars_IG
 {
     public partial class StarShipModel
     {
-        
+        #region "Attributes and Properties"
         public string name { get; set; }
         public string model { get; set; }
         public string manufacturer { get; set; }
@@ -29,24 +29,31 @@ namespace StarsWars_IG
         public string created { get; set; }
         public string edited { get; set; }
         public string url { get; set; }
+        #endregion
 
+        #region "Constructors"
         public StarShipModel() { }
-
+        #endregion
 
 
     }
     public partial class JsonModel
     {
+        #region "Attributes and Properties"
         private readonly string EndPoint = "https://swapi.co/api/starships/";
         public string next { get; set; }
         public List<StarShipModel> results { get; set; }
         public JsonModel jsonModel { get; set; }
+        #endregion
 
+        #region "Contructors"
         public JsonModel()
         {
             results = new List<StarShipModel>();
         }
+        #endregion
 
+        #region "Methods"
         /// <summary>
         /// Returns one generic object.
         /// </summary>
@@ -94,12 +101,12 @@ namespace StarsWars_IG
                 return default(T);
             }
         }
+
         /// <summary>
         /// Returns a collection of all the star ships and the total amount of stops required to make the distance between the planets in string format.
         /// </summary>
         /// <param name="MGLT">The distance between the planets.</param>
         /// <returns>A string, representing the distance between the planets.</returns>
-
         public string GetAllStarships(int MGLT)
         {
             try
@@ -145,5 +152,6 @@ namespace StarsWars_IG
                 return string.Empty;
             }
         }
+        #endregion
     }
 }
